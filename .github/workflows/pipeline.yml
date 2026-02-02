@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Add CI/CD pipeline
 
 on:
   push:
@@ -9,9 +9,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
       - name: Build Docker Image
+        working-directory: coursera-spring-hello-world
         run: docker build -t spring-boot-app:latest .
